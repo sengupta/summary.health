@@ -36,6 +36,7 @@
   <meta name="twitter:description" content="A concise health summary designed to be reviewed by a doctor within a minute." />
 
   <style>
+
     :root{
       --bg: #070a12;
       --panel: rgba(255,255,255,.06);
@@ -64,16 +65,25 @@
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+
+    html{
+      min-height: 100%;
+      background:
+        radial-gradient(1100px 650px at 20% 10%, rgba(122,168,255,.16), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(142,240,199,.14), transparent 55%),
+        radial-gradient(900px 700px at 50% 100%, rgba(255,122,154,.08), transparent 60%),
+        linear-gradient(180deg, #050714 0%, #070a12 45%, #060914 100%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
     body{
-      margin:0;
+margin:0;
       font-family: var(--font);
       color: var(--text);
-      background:
-        radial-gradient(1100px 650px at 20% 10%, rgba(122,168,255,.22), transparent 55%),
-        radial-gradient(900px 600px at 80% 20%, rgba(142,240,199,.18), transparent 55%),
-        radial-gradient(900px 700px at 50% 100%, rgba(255,122,154,.10), transparent 60%),
-        linear-gradient(180deg, #050714 0%, #070a12 45%, #060914 100%);
-      letter-spacing: .2px;
+      background: transparent;
+      min-height: 100vh;
+letter-spacing: .2px;
       line-height: 1.45;
     }
 
@@ -88,12 +98,15 @@
     .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
     header{
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
       z-index: 50;
       backdrop-filter: blur(12px);
       background: linear-gradient(180deg, rgba(7,10,18,.70), rgba(7,10,18,.35));
       border-bottom: 1px solid rgba(255,255,255,.08);
+    
+      transform: translateZ(0);
     }
     .topbar{
       display:flex;
@@ -606,6 +619,34 @@
       background: rgba(0,0,0,.18);
       border: 1px solid rgba(255,255,255,.14);
     }
+  
+    @media (max-width: 720px){
+      html{ background-attachment: scroll; }
+    }
+
+    /* Wide preview image below the fold */
+    .preview{
+      padding: 18px 0 8px;
+    }
+    figure.banner{
+      margin: 0;
+    }
+    .bannerImg{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow2);
+      background: rgba(0,0,0,.18);
+    }
+    .bannerCaption{
+      margin-top: 10px;
+      color: var(--faint);
+      font-size: 13px;
+      max-width: 90ch;
+    }
+
   </style>
 
   <!-- Structured data: WebSite + FAQPage -->
