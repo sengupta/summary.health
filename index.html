@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Primary SEO -->
+  <title>1-Minute Health Summary Template | summary.health</title>
+  <meta
+    name="description"
+    content="A free, print-ready health summary template designed to be reviewed by a doctor within a minute- especially during emergencies and busy clinic visits."
+  />
+  <link rel="canonical" href="https://summary.health/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="1-Minute Health Summary Template" />
+  <meta property="og:description" content="A concise health summary designed to be reviewed by a doctor within a minute." />
+  <meta property="og:url" content="https://summary.health/" />
+  <meta property="og:site_name" content="summary.health" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="1-Minute Health Summary Template" />
+  <meta name="twitter:description" content="A concise health summary designed to be reviewed by a doctor within a minute." />
+
+  <style>
+    :root{
+      --bg: #070a12;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --faint: rgba(255,255,255,.55);
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+
+      --accent: #8ef0c7;   /* mint */
+      --accent2:#7aa8ff;   /* soft blue */
+      --danger:#ff7a9a;    /* soft pink for “note” emphasis */
+      --focus: 0 0 0 3px rgba(142,240,199,.35);
+
+      --radius: 18px;
+      --radius2: 26px;
+
+      --max: 1120px;
+      --pad: clamp(16px, 2.2vw, 28px);
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1100px 650px at 20% 10%, rgba(122,168,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 80% 20%, rgba(142,240,199,.18), transparent 55%),
+        radial-gradient(900px 700px at 50% 100%, rgba(255,122,154,.10), transparent 60%),
+        linear-gradient(180deg, #050714 0%, #070a12 45%, #060914 100%);
+      letter-spacing: .2px;
+      line-height: 1.45;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible, button:focus-visible, summary:focus-visible{
+      outline: none;
+      box-shadow: var(--focus);
+      border-radius: 10px;
+    }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(7,10,18,.70), rgba(7,10,18,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 190px;
+    }
+    .logo{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.0) 70%),
+        linear-gradient(135deg, rgba(142,240,199,.95), rgba(122,168,255,.75));
+      box-shadow: 0 8px 22px rgba(122,168,255,.18);
+      border: 1px solid rgba(255,255,255,.22);
+      flex: 0 0 auto;
+    }
+    .brand strong{ font-weight: 650; letter-spacing: .3px; }
+    .brand span{ display:block; font-size: 12px; color: var(--faint); margin-top: 1px; }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .navlink{
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    .navlink:hover{
+      background: rgba(255,255,255,.06);
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .hero{
+      padding: clamp(34px, 6vw, 76px) 0 22px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 940px){
+      .heroGrid{ grid-template-columns: 1fr; gap: 18px; }
+    }
+
+    .chipRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .chip{
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+    .chip b{ font-weight: 650; color: rgba(255,255,255,.92); }
+
+    h1{
+      font-size: clamp(34px, 3.6vw, 54px);
+      line-height: 1.05;
+      margin: 0 0 12px;
+      letter-spacing: -.4px;
+    }
+    .subhead{
+      font-size: clamp(16px, 1.35vw, 19px);
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 65ch;
+    }
+
+    .ctaRow{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 18px 0 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 650;
+      border: 1px solid transparent;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none !important;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      will-change: transform;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(142,240,199,.95), rgba(122,168,255,.85));
+      color: rgba(7,10,18,.95);
+      box-shadow: 0 16px 40px rgba(122,168,255,.18);
+    }
+    .btnPrimary:hover{ box-shadow: 0 18px 55px rgba(122,168,255,.26); }
+
+    .btnGhost{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      color: var(--text);
+    }
+    .btnGhost:hover{
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .micro{
+      color: var(--faint);
+      font-size: 13px;
+      margin: 8px 0 0;
+    }
+    .micro a{ color: rgba(255,255,255,.82); }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+    }
+    .heroCard{
+      padding: 18px;
+    }
+    .heroCard h2{
+      font-size: 14px;
+      letter-spacing: .35px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+      margin: 0 0 10px;
+    }
+    .heroCard ul{
+      margin: 0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
+    }
+    .heroCard li{ margin: 8px 0; }
+    .note{
+      margin-top: 14px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(255,122,154,.08);
+      border: 1px solid rgba(255,122,154,.18);
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+    }
+    .note strong{ color: rgba(255,255,255,.92); }
+
+    section{ padding: 28px 0; }
+    .sectionTitle{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    h2{
+      font-size: 24px;
+      margin: 0;
+      letter-spacing: -.2px;
+    }
+    .kicker{
+      color: var(--faint);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .panel h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: -.1px;
+    }
+    .panel p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 75ch;
+    }
+    .bullets{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bullets li{ margin: 8px 0; }
+
+    /* Standard callout */
+    .callout{
+      padding: 16px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(142,240,199,.10), rgba(255,255,255,.04));
+      border: 1px solid rgba(142,240,199,.18);
+    }
+    .callout h3{ margin: 0 0 8px; font-size: 16px; }
+    .callout p{ margin:0; color: var(--muted); font-size: 14px; }
+    .callout .inlineActions{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      margin-top: 12px;
+    }
+
+    /* Contrasting "For doctors" callout */
+    .calloutDoctor{
+      padding: 18px;
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(700px 280px at 10% 10%, rgba(255,255,255,.55), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, rgba(142,240,199,.92), rgba(122,168,255,.82));
+      border: 1px solid rgba(255,255,255,.45);
+      color: rgba(7,10,18,.92);
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+    }
+    .calloutDoctor h3{ margin:0 0 8px; font-size: 16px; letter-spacing: -.1px; color: rgba(7,10,18,.92); }
+    .calloutDoctor p{ margin:0; color: rgba(7,10,18,.78); font-size: 14px; }
+    .calloutDoctor .inlineActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px; }
+    .calloutDoctor .smallLink{
+      background: rgba(7,10,18,.10);
+      border: 1px solid rgba(7,10,18,.18);
+      color: rgba(7,10,18,.92);
+    }
+    .calloutDoctor .smallLink:hover{
+      background: rgba(7,10,18,.16);
+      border-color: rgba(7,10,18,.26);
+    }
+
+    .smallLink{
+      font-size: 14px;
+      color: rgba(255,255,255,.84);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      text-decoration: none !important;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .smallLink:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .samplesGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      .samplesGrid{ grid-template-columns: 1fr; }
+    }
+    .sampleCard{
+      padding: 16px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .sampleCard h3{ margin:0 0 6px; font-size: 16px; }
+    .sampleCard p{ margin:0 0 12px; color: var(--muted); font-size: 14px; }
+    .sampleCard .row{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+
+    .faq{
+      margin-top: 10px;
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    details{
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 14px 16px;
+    }
+    details:first-child{ border-top: none; }
+    summary{
+      cursor: pointer;
+      font-weight: 650;
+      list-style: none;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .faqChevron{
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid rgba(255,255,255,.55);
+      border-bottom: 2px solid rgba(255,255,255,.55);
+      transform: rotate(45deg);
+      flex: 0 0 auto;
+      margin-left: 10px;
+      transition: transform .15s ease;
+    }
+    details[open] .faqChevron{ transform: rotate(225deg); }
+    .faqBody{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 90ch;
+    }
+    .faqBody p{ margin: 10px 0 0; }
+    .faqBody p:first-child{ margin-top: 0; }
+
+    .ctaBand{
+      padding: 22px;
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(900px 350px at 20% 20%, rgba(142,240,199,.16), transparent 55%),
+        radial-gradient(900px 350px at 80% 30%, rgba(122,168,255,.18), transparent 55%),
+        rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow2);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .ctaBand h2{ font-size: 22px; margin: 0; }
+    .ctaBand p{ margin: 6px 0 0; color: var(--muted); font-size: 14px; max-width: 70ch; }
+    .ctaBand .ctaRow{ margin: 0; }
+
+    footer{
+      padding: 30px 0 44px;
+      color: var(--faint);
+      font-size: 13px;
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .footerGrid{ grid-template-columns: 1fr; }
+    }
+    .footerLinks{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .footerLinks a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      text-decoration: none !important;
+      color: rgba(255,255,255,.72);
+    }
+    .footerLinks a:hover{
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.88);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    /* Modal (CSS-only via :target) */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      z-index: 100;
+    }
+    .modal:target{ display: block; }
+    .modalOverlay{
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.60);
+      backdrop-filter: blur(8px);
+    }
+    .modalPanel{
+      position: relative;
+      max-width: 920px;
+      margin: 6vh auto 0;
+      padding: 16px;
+      width: calc(100% - 2*var(--pad));
+    }
+    .modalCard{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .modalHead{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .modalHead h2{
+      font-size: 18px;
+      margin: 0;
+    }
+    .modalClose{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      text-decoration: none !important;
+      color: rgba(255,255,255,.88);
+    }
+    .modalClose:hover{ background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
+    .modalBody{
+      padding: 16px;
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 880px){
+      .modalBody{ grid-template-columns: 1fr; }
+    }
+    .qrBox{
+      padding: 14px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .qrBox img{
+      width: 100%;
+      height: auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+    }
+    .urlBox{
+      margin-top: 12px;
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.86);
+      word-break: break-all;
+    }
+    .modalBody h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .modalBody p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .modalBody ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .modalBody li{ margin: 8px 0; }
+
+    .divider{
+      height: 1px;
+      background: rgba(255,255,255,.08);
+      margin: 18px 0;
+    }
+    .icon{
+      width: 18px; height: 18px;
+      display:inline-block;
+      border-radius: 6px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+  </style>
+
+  <!-- Structured data: WebSite + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "summary.health",
+    "url": "https://summary.health/",
+    "description": "A free health summary template designed to be reviewed by a doctor within a minute."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A document template you can use to create and maintain a very short, concise summary of your health status and history- so a doctor can understand the essentials quickly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What isn't this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It isn’t a full chronological or longitudinal health record. It’s a compact snapshot, not a complete archive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is this useful?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It’s designed to give a doctor the most important information in as little time as possible- especially during emergencies and busy clinic visits. It reduces time spent reconstructing your history and makes visits more productive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can’t my doctor do this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many clinics are time-constrained and may not be able to maintain a continuously updated summary for every patient. This template helps you keep a reliable snapshot yourself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "So can I stop maintaining my medical records or stop carrying my file to the doctor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This summary complements your records- it doesn’t replace them. Bring relevant reports as needed, but use this summary to ensure the essentials are never missed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I decide whether to include something or whether it is trivial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When in doubt, include the detail. A little extra context is usually safer than accidentally omitting something important."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I maintain this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Keep a backed-up digital copy (e.g., cloud storage). Set a recurring reminder to review it (every 3 months is a good start). After updates, print a new copy and destroy older ones. Share access with trusted family or caregivers so they always have the latest version."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a id="top"></a>
+
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand" aria-label="summary.health">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <strong>summary.health</strong>
+            <span>1-Minute Health Summary Template</span>
+          </div>
+        </div>
+
+        <nav aria-label="Primary">
+          <a class="navlink" href="#what">What is this?</a>
+          <a class="navlink" href="#faq">FAQ</a>
+          <a class="navlink" href="#qr">View QR</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div>
+            <div class="chipRow">
+              <div class="chip"><b>Free</b> to use</div>
+              <div class="chip">Created by <b>patients</b></div>
+              <div class="chip">Designed for <b>speed</b></div>
+              <div class="chip">Optimized for <b>clarity</b></div>
+            </div>
+
+            <h1>
+              Your Health Summary
+            </h1>
+
+            <p class="subhead">
+
+            This is a meticulously structured document template used to create
+            and maintain a concise snapshot of your health status. It isn't a
+            long, winding medical history- it is a <b>strategic summary</b>
+            designed to be reviewed by a doctor in under a minute.
+            </p>
+            <p class="subhead">
+            This keeps your key conditions, medications, allergies, surgeries, and safety-critical details handy, 
+            saving time, reducing errors, and making every doctor visit count. <br />
+            </p>
+
+            <div class="ctaRow">
+              <a class="btn btnPrimary" target="_blank" href="https://sengupta.myinstamojo.com/product/health-summary/">
+                Download template + get future updates
+                <span class="icon" aria-hidden="true"></span>
+              </a>
+            </div>
+            <p class="micro">
+            Contact details are used for us to send you updates to the template in the future.
+            </p>
+            <p class="micro">
+              Prefer downloading without sharing contact details?
+              <a href="https://github.com/sengupta/summary.health" rel="nofollow">Get it on GitHub</a>.
+
+              <span aria-hidden="true"> · </span>
+              <a href="#qr" aria-haspopup="dialog">View QR</a>.
+            </p>
+
+          </div>
+
+          <aside class="card heroCard" aria-label="Quick benefits">
+            <h2>What this gives you</h2>
+            <ul>
+              <li><strong>Emergency-ready:</strong> essential history available fast.</li>
+              <li><strong>More productive visits:</strong> less time reconstructing the past.</li>
+              <li><strong>Fewer misses:</strong> allergies/meds/conditions don’t get forgotten.</li>
+              <li><strong>Print or digital:</strong> works in a folder, wallet, or phone.</li>
+            </ul>
+            <div class="note">
+              <strong>Important:</strong> This template is not medical advice and does not replace your
+              medical records. Bring relevant reports when needed.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="divider"></div></div>
+
+    <!-- WHAT IS THIS -->
+    <section id="what">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <h2>What is this?</h2>
+          <p class="kicker">Simple structure. High leverage.</p>
+        </div>
+
+        <div class="grid2">
+          <div class="panel">
+            <h3>Health summary template (reviewable in ~1 minute)</h3>
+            <p>
+              A document template you maintain to keep a short and concise summary of your health status and history- 
+              structured so a doctor can skim it quickly.
+            </p>
+            <ul class="bullets">
+              <li>Best for: patients, relatives, caregivers.</li>
+              <li>Also useful for: doctors to share with patients as a preparedness habit.</li>
+              <li>Works globally: no country-specific assumptions.</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>What isn’t this</h3>
+            <p>
+              It is not a complete chronological / longitudinal health record structure.
+              Think of it as a compact snapshot, not a full archive.
+            </p>
+            <ul class="bullets">
+              <li>It won’t replace your reports, prescriptions, or imaging, it complements them.</li>
+              <li>It’s designed for fast review, not for storing everything.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="grid2">
+          <div class="panel">
+            <h3>Where it’s useful</h3>
+            <p>
+              This summary is designed to provide the most important information to a doctor in as little
+              time as possible- especially during emergencies and busy visits. It reduces time spent
+              reconstructing your medical history from memory, especially in
+              stressful situations, and helps keep the appointment focused on
+              the current complaint.
+            </p>
+            <ul class="bullets">
+              <li>Emergency rooms & urgent care</li>
+              <li>Visits with a new doctor</li>
+              <li>Complex cases with multiple conditions or medications</li>
+              <li>Elderly care and caregiver handoffs</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Why you should own this</h3>
+            <p>
+              Being organized improves the quality of care- not because doctors “favor” organized
+              patients, but because ready access to accurate details enables better clinical decisions.
+              With the essentials in front of you, the visit becomes a collaborative discussion instead of an interrogation.
+            </p>
+            <ul class="bullets">
+              <li>Fewer forgotten details</li>
+              <li>Faster triage and safer prescribing</li>
+              <li>More time spent on decisions, not recollection</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <!-- For doctors: contrasting scheme -->
+        <div class="calloutDoctor" aria-label="Doctor sharing callout">
+          <h3>For doctors & clinics: a zero-workflow way to improve history-taking</h3>
+          <p>
+            Share a link to this page (or QR) with patients at the end of a visit, in appointment reminders,
+            or via your reception desk. Patients maintain it themselves, and you get a consistent,
+            skim-friendly summary at the next visit.
+          </p>
+          <div class="inlineActions">
+            <a class="smallLink" href="#qr" aria-haspopup="dialog">Share this page</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW TO MAINTAIN -->
+    <section id="maintain">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <h2>How to maintain it</h2>
+          <p class="kicker">A lightweight habit that stays current</p>
+        </div>
+
+        <div class="grid2">
+          <div class="panel">
+            <h3>Simple maintenance routine</h3>
+            <ul class="bullets">
+              <li>Keep a digital copy in a backed-up location (cloud storage works well).</li>
+              <li>Set a recurring reminder to review it (every 3 months is a good starting cadence).</li>
+              <li>After updates, print a fresh copy and destroy older printouts.</li>
+              <li>Share access with trusted family/caregivers so they always have the latest version.</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>What to include (rule of thumb)</h3>
+            <p>
+              When in doubt, include the detail. A bit of extra context is usually safer than omitting
+              something important- especially allergies, medication changes, and past serious events.
+            </p>
+            <ul class="bullets">
+              <li>Allergies & adverse reactions</li>
+              <li>Current medications + dose + schedule</li>
+              <li>Major diagnoses, surgeries, implants/devices</li>
+              <li>Clinician contacts for key conditions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <h2>FAQ</h2>
+          <p class="kicker">Clear answers, minimal fluff</p>
+        </div>
+
+        <div class="faq" role="region" aria-label="Frequently asked questions">
+          <details>
+            <summary>What is this? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                This is a document template that you can use to create and maintain a very short and concise summary
+                of your health status and history- so a doctor can understand the essentials quickly.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What isn’t this? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                This is not a chronological / longitudinal health record structure. It’s a compact snapshot, not a complete archive.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Where is this useful? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                This summary is designed to provide the most important information to a doctor in as little time as possible.
+                It reduces time spent reconstructing your history- especially during emergencies- and helps visits become more productive.
+              </p>
+              <p>
+                When you enter a meeting with your doctor with your information in order, the appointment becomes a collaborative discussion
+                instead of an interrogation where the doctor struggles to pull relevant history from fragmented memory.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Why can’t my doctor do this? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Your doctor probably does not have the time to maintain a continuously updated, curated summary for every patient.
+                This helps you keep a reliable summary yourself.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>So can I stop maintaining my medical records or stop carrying my file every time? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                No. This does not replace your medical records. It complements them by making the essentials clear and quickly readable.
+                Bring relevant reports when needed.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>How do I decide whether to include something or whether it is trivial? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                When in doubt, err on the side of including the detail over eliminating it- especially for allergies, medications,
+                serious diagnoses, surgeries, implants/devices, and anything that changes care decisions.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>How do I maintain this? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Keep a soft copy in a place that’s backed up (cloud storage is a good option). Maintain a recurring calendar reminder
+                to review and update it regularly (every 3 months is a good frequency).
+              </p>
+              <p>
+                Every time you update, print a new copy and destroy previous copies. Share with close family members, friends,
+                and caregivers so they always have the latest version.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>How do I maintain this? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Keep a soft copy in a place that’s backed up (cloud storage is a good option). Maintain a recurring calendar reminder
+                to review and update it regularly (every 3 months is a good frequency).
+              </p>
+              <p>
+                Every time you update, print a new copy and destroy previous copies. Share with close family members, friends,
+                and caregivers so they always have the latest version.
+              </p>
+            </div>
+          </details>
+
+          <!-- General -->
+          <details>
+            <summary>Is my medical data stored on this website? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                No. This website only provides the template. We do not store, see, or have access to any medical information you enter into your downloaded document.
+                Your privacy remains entirely under your control.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>How should I securely store my completed summary? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Since this contains sensitive health information, store your digital copy in a secure location with strong access controls.
+                We recommend using an encrypted cloud drive (like Proton Drive, Google Drive, or Dropbox) with Two-Factor Authentication (2FA) enabled.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Should I show this to my doctor on my phone or a printout? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                <strong>Print is king.</strong> A digital copy is a great backup, but a physical printout lets a doctor scribble notes, highlight sections,
+                and keep it in view during the examination without screen locks or distractions.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Is this template valid globally? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Yes. The terminology used (Allergies, Medications, Comorbidities, etc.) follows standard medical nomenclature that healthcare professionals
+                recognize worldwide.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What if I have multiple family members? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Maintain a separate document for each family member. This preserves clarity during emergencies and helps prevent dangerous mix-ups,
+                especially around medications and allergies.
+              </p>
+            </div>
+          </details>
+
+          <!-- For Doctors & Caregivers -->
+          <details>
+            <summary>I am a doctor. How can I use this with my patients? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Share the link to this page (or the QR code) with patients- ideally during a first visit or in appointment reminders.
+                Ask them to bring a filled summary next time. It reduces administrative back-and-forth and gives you higher-quality history for clinical reasoning.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>I am a caregiver for an elderly patient. Is this for me? <span class="faqChevron" aria-hidden="true"></span></summary>
+            <div class="faqBody">
+              <p>
+                Absolutely. Caregivers often need to relay complex histories under pressure. This document helps ensure nothing important is missed,
+                even if you weren’t present for the previous consultation.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <p class="micro" style="margin-top:12px;">
+          Have a suggestion or want to contribute improvements? <a href="https://sengupta.me/">Send feedback</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- QR MODAL -->
+  <div id="qr" class="modal" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+    <a href="#top" class="modalOverlay" aria-label="Close QR modal"></a>
+
+    <div class="modalPanel">
+      <div class="modalCard">
+        <div class="modalHead">
+          <h2 id="qrTitle">Share summary.health via QR</h2>
+          <a class="modalClose" href="#top" aria-label="Close">✕</a>
+        </div>
+
+        <div class="modalBody">
+          <div class="qrBox">
+            <img src="https://api.qrcode-monkey.com/tmp/d5340f000b3a94c54575ebdf9c4d0183.svg?1767382226840" alt="QR code to https://summary.health" />
+            <div class="urlBox">https://summary.health</div>
+            <p class="micro" style="margin-top:10px;">
+              Tip: clinics can print this QR and place it at reception or inside patient discharge folders.
+            </p>
+          </div>
+
+          <div>
+            <h3>How to use this QR</h3>
+            <p>
+              Scan the QR anytime to return to this page. Share it with family,
+              caregivers, or your doctor so everyone can download the same
+              template.
+            </p>
+            <ul>
+              <li><strong>Patients and Caregivers:</strong> Share this link with family and friends. Encourage them to download this template and maintain an up-to-date copy with themselves.</li>
+              <li><strong>Doctors:</strong> share the QR after consults to help patients arrive prepared next time.</li>
+              <li>Share by WhatsApp/SMS/email: send <span style="font-family:var(--mono);"><a href="https://summary.health">summary.health</span>.</li>
+            </ul>
+
+            <div style="height:12px"></div>
+
+            <div class="panel" style="background: rgba(0,0,0,.20);">
+              <h3 style="margin:0 0 8px;">Download options</h3>
+              <p style="margin:0; color: var(--muted);">
+                Want the template along with updates to future versions?
+              </p>
+              <div class="ctaRow" style="margin-top:12px;">
+                <a class="btn btnPrimary" href="https://sengupta.myinstamojo.com/product/health-summary/">Download + Updates</a>
+              </div>
+              <p style="margin:0; color: var(--muted);">
+                Want the template without sharing contact information?
+              </p>
+              <div class="ctaRow" style="margin-top:12px;">
+                <a class="btn btnGhost" href="https://github.com/sengupta/summary.health" rel="nofollow">Download only</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="footerGrid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <div class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:10px;"></div>
+            <div>
+              <strong style="color:rgba(255,255,255,.88);">summary.health</strong>
+              <div style="color:var(--faint); font-size:12px;">1-Minute Health Summary Template</div>
+            </div>
+          </div>
+          <div>
+            A free template to help patients and caregivers share essential medical context quickly.
+            Keep it updated, keep it accessible, and bring relevant reports when needed.
+          </div>
+          <div style="margin-top:10px; color: rgba(255,255,255,.52);">
+            © <span id="year">2026</span> summary.health · No ads · Global-friendly · Static page
+          </div>
+        </div>
+
+        <div class="footerLinks" aria-label="Footer">
+          <a href="https://sengupta.me/">Contact</a>
+          <a href="https://github.com/sengupta/summary.health" rel="nofollow">GitHub</a>
+          <a href="#qr">QR</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){ var el=document.getElementById('year'); if(el) el.textContent = String(new Date().getFullYear()); })();
+  </script>
+</body>
+</html>
